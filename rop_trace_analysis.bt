@@ -1,0 +1,20 @@
+// Monitor Function Execution (High-Level Analysis)
+uprobe:/home/pi/rop1a:rop1
+{
+    printf("ROP Gadget 1 (rop1) executed! Instruction Pointer: %p\n", reg("ip"));
+}
+
+uprobe:/home/pi/rop1a:rop2
+{
+    printf("ROP Gadget 2 (rop2) executed! Instruction Pointer: %p\n", reg("ip"));
+}
+
+uprobe:/home/pi/rop1a:rop3
+{
+    printf("ROP Gadget 3 (rop3) executed! Instruction Pointer: %p\n", reg("ip"));
+}
+
+uprobe:/home/pi/rop1a:vulnerable
+{
+    printf("Entering vulnerable() function. Stack pointer: %p\n", reg("sp"));
+}
